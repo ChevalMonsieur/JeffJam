@@ -8,6 +8,9 @@ public class CameraPlayer : MonoBehaviour
     static GameObject player;
     public GameObject playerRotation;
 
+    // variables
+    [SerializeField] float heightOffset = 0.75f;
+
     void Start()
     {
         player = GameManager.player;
@@ -17,7 +20,8 @@ public class CameraPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position;
         transform.rotation = playerRotation.transform.rotation;
+        transform.position = player.transform.position;
+        transform.position += Vector3.up * heightOffset;
     }
 }
